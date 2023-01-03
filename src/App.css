@@ -12,7 +12,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.active {
+  border: 1px solid red !important;
+}
 .App-header {
   background-color: #00b061;
   min-height: 100vh;
@@ -27,16 +29,16 @@
 .App-link {
   color: #61dafb;
 }
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 7px;
   background-color: rgba(106, 106, 106, 0.286);
 }
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   border-radius: 50px;
   background-color: rgba(96, 96, 96, 0.587);
 }
-@media(max-width:480px) {
-  .xs{
+@media (max-width: 480px) {
+  .xs {
     font-size: 25px !important;
   }
 }

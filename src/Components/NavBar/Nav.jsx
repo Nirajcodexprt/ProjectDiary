@@ -11,6 +11,7 @@ import {
   Text,
   useBreakpointValue,
   useColorMode,
+  useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react'
 import * as React from 'react'
@@ -24,6 +25,7 @@ export default function Nav() {
     base: false,
     sm: true,
   })
+  const bg = useColorModeValue('white', '#1A202C')
   const navigate = useNavigate()
   const { isOpen, onToggle } = useDisclosure()
   const { colorMode, toggleColorMode } = useColorMode()
@@ -32,10 +34,11 @@ export default function Nav() {
       as="nav"
       py={4}
       px={5}
-      bg="bg-accent"
+      bg={bg}
       color="on-accent"
       position={'fixed'}
       width="100vw"
+      zIndex={100}
     >
       <Flex justify="space-between">
         <Logo />
@@ -71,7 +74,7 @@ export default function Nav() {
           />
         )}
       </Flex>
-      <Fade in={isOpen}>
+      {isOpen && (
         <Box
           pos={'absolute'}
           height="60vh"
@@ -82,7 +85,7 @@ export default function Nav() {
         >
           <Card />
         </Box>
-      </Fade>
+      )}
     </Box>
   )
 }
