@@ -12,6 +12,7 @@ import {
   useBreakpointValue,
   useColorMode,
   useColorModeValue,
+  useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react'
 import * as React from 'react'
@@ -25,6 +26,7 @@ export default function Nav({colorMode,toggleColorMode}) {
     base: false,
     sm: true,
   })
+  const bg = useColorModeValue('white', '#1A202C')
   const navigate = useNavigate()
   const { isOpen, onToggle } = useDisclosure()
 
@@ -41,6 +43,7 @@ export default function Nav({colorMode,toggleColorMode}) {
       position={'fixed'}
       zIndex='100'
       width="100vw"
+      zIndex={100}
     >
       <Flex justify="space-between">
         {/* <Logo /> */}
