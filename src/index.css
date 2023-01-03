@@ -18,9 +18,7 @@
   color: white;
   border-style: none;
 }
-.chakra-ui-dark{
-  --chakra-colors-chakra-body-bg:#011729 !important;
-}
+
 .RSPBprogressBar {
   height: 2px;
   width: 30%;
