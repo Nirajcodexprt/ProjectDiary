@@ -16,7 +16,7 @@ const AfterAuth = ({ children }) => {
     const { colorMode, toggleColorMode } = useColorMode()
 
     return (
-        <Flex as="section" bg="bg-canvas" direction={{ base: 'column', md: 'row', }} h={"100vh"} >
+        <Flex as="section" bg="bg-canvas" direction={{ base: 'row', md: 'row', }} h={"100vh"} >
             <Nav toggleColorMode={toggleColorMode} colorMode={colorMode} />
             <Sidebar />
             <Box
