@@ -38,10 +38,6 @@ const CreateTeam = () => {
             <FormLabel>Team Name</FormLabel>
             <Input type="text" width={"50%"} />
           </FormControl>
-          <FormControl py={5}>
-            <FormLabel>Team Password</FormLabel>
-            <Input type="password" width={"50%"} />
-          </FormControl>
 
           <Box width={"40%"}>
             <MultiSelect
