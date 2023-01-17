@@ -13,11 +13,12 @@ import Project from './Components/_projects/Project'
 import Member from './Components/Member/Member'
 import { useColorMode } from '@chakra-ui/react'
 import CreateProject from './Components/_projects/CreateProject'
+import Teams from './Components/teams/Teams'
+import CreateTeam from './Components/teams/CreateTeam'
 
 function App() {
-
   const { colorMode, toggleColorMode } = useColorMode()
-  console.log("colorMode :::", colorMode)
+  console.log('colorMode :::', colorMode)
 
   return (
     <BrowserRouter>
@@ -28,7 +29,10 @@ function App() {
         <Route path="/userauth" element={<UserAuth />} />
         <Route path="/signin" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/teams" element={<Team />} />
+
+        <Route path="/teams" element={<Teams />} />
+        <Route path="/teams/CreateTeam" element={<CreateTeam />} />
+
         <Route path="/members" element={<Member />} />
 
         <Route path="/projects" element={<Project />} />

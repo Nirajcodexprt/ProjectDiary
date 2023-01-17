@@ -9,20 +9,25 @@ import {
 } from '@chakra-ui/react'
 import React from 'react'
 import Tables from './table/Tables.jsx'
-
+import AfterAuth from '../../HOC/AfterAuth'
+import { NavLink } from 'react-router-dom'
 const Teams = () => {
   return (
-    <Box p={4}>
-      <HStack w={'100%'} justifyContent={'space-between'}>
-        <Heading>Teams</Heading>
-        <ButtonGroup>
-          <Button>Create Team</Button>
-        </ButtonGroup>
-      </HStack>
-      <Box>
-        <Tables />
+    <AfterAuth>
+      <Box p={2}>
+        <HStack w={'100%'} justifyContent={'space-between'}>
+          <Heading>Teams</Heading>
+          <ButtonGroup>
+            <NavLink to={'/teams/CreateTeam'}>
+              <Button>Create Team</Button>
+            </NavLink>
+          </ButtonGroup>
+        </HStack>
+        <Box>
+          <Tables />
+        </Box>
       </Box>
-    </Box>
+    </AfterAuth>
   )
 }
 

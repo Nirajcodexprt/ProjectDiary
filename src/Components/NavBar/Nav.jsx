@@ -45,7 +45,7 @@ export default function Nav({colorMode,toggleColorMode}) {
     >
       <Flex justify="space-between">
         {/* <Logo /> */}
-        <img width='230px' style={{padding:'20px',borderRadius:'25px'}} src= {colorMode === "light" ? "/assets/light.png" :"/assets/WB.png"} />
+        <img width='230px' style={{padding:'20px',borderRadius:'25px'}} src= {colorMode === "light" ? "/assets/light.png" :"/assets/dark.png"} />
         {isDesktop ? (
           <HStack spacing="4">
             <ButtonGroup variant="ghost-on-accent" spacing="1">
