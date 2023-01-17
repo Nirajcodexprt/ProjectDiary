@@ -13,9 +13,9 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import Tables from "./table/Tables.jsx";
+
 import AfterAuth from "../../HOC/AfterAuth";
-import List from "./List/List.jsx";
+
 import {
   MultiSelect,
   MultiSelectTheme,
@@ -42,12 +42,12 @@ const CreateTeam = () => {
             <FormLabel>Team Password</FormLabel>
             <Input type="password" width={"50%"} />
           </FormControl>
-          <FormLabel pt={10}>Select Team Member</FormLabel>
+
           <Box width={"40%"}>
             <MultiSelect
               options={options}
               value={value}
-              label="Choose an item"
+              label="Select Team Member"
               onChange={onChange}
               create
             />
