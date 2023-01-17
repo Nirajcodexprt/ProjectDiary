@@ -17,6 +17,7 @@ import {
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AfterAuth from "../../HOC/AfterAuth";
+import ThirdPartyInput from "./ThirdPartyInput";
 
 function CreateProject() {
   const navigate = useNavigate();
@@ -26,27 +27,42 @@ function CreateProject() {
       details: "",
       creadentials: "",
       Notes: "",
+      default: false,
     },
   ];
-  const [creadential, setCredentials] = useState(temp);
-  const [Refresh, setRefresh] = useState(true);
+  const [creadential, setCredentials] = useState([
+    {
+      name: "",
+      details: "",
+      creadentials: "",
+      Notes: "",
+    },
+  ]);
   const BtnColor = useColorModeValue("#fff", "#000");
-  // -   3rd Party Credentials [
-  //     {
-  //         -   3rd Party Provider Name: GOOGLE SIGNUP
-  //         -   Details: We required google sign up for our app authentication
-  //         -   Credentials:
-  //                 email: abc@def.com
-  //                 password: 123456
-  //         -   Notes: Please do not change the password for the credentials.
-  //     },
-  function removeRow(i) {
-    let main = creadential;
-    main.splice(i, 1);
-    console.log(main);
-    setCredentials(main);
-    setRefresh(!Refresh);
-  }
+
+  const handleAddCreadential = () => {
+    setCredentials([
+      ...creadential,
+      {
+        name: "",
+        details: "",
+        creadentials: "",
+        Notes: "",
+      },
+    ]);
+  };
+
+  const removeRow = (index) => {
+    let OriginalData = [...creadential];
+    console.log("index", index);
+    OriginalData = OriginalData.filter((_, indx) => {
+      if (index !== indx) {
+        return _;
+      }
+    });
+    console.log(OriginalData);
+    setCredentials([...OriginalData]);
+  };
   return (
     <>
       <AfterAuth>
@@ -106,46 +122,13 @@ function CreateProject() {
               display={"flex"}
             >
               <FormLabel>Third Party Credentials</FormLabel>
-              <Button onClick={() => setCredentials((old) => [...old, temp])}>
-                + Add
-              </Button>
             </FormControl>
             <Divider />
-            {creadential.map((val, i) => {
-              return (
-                <>
-                  <FormControl gap={5} display={"grid"}>
-                    <Flex gap={5}>
-                      <Textarea
-                        placeholder="Enter Name"
-                        resize={"none"}
-                      ></Textarea>
-                      <Textarea
-                        placeholder="Enter Details"
-                        resize={"none"}
-                      ></Textarea>
-                    </Flex>
-                    <Flex gap={5}>
-                      <Textarea
-                        placeholder="Enter Credentials"
-                        resize={"none"}
-                      ></Textarea>
-                      <Textarea
-                        placeholder="Enter Notes"
-                        resize={"none"}
-                      ></Textarea>
-                    </Flex>
-                    <Flex justifyContent={"flex-end"}>
-                      <Button width={"100px"} onClick={() => removeRow(i)}>
-                        Remove
-                      </Button>
-                    </Flex>
-                  </FormControl>
-                  <Divider />
-                </>
-              );
-            })}
 
+            <ThirdPartyInput removeRow={removeRow} creadential={creadential} />
+            <Box>
+              <Button onClick={handleAddCreadential}>+ Add</Button>
+            </Box>
             <Stack
               spacing="6"
               direction={{

@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 import { FiDownloadCloud } from "react-icons/fi";
+import State from "../State/State";
 
 export const Content = () => (
   <Stack
@@ -56,24 +57,31 @@ export const Content = () => (
       <SimpleGrid
         columns={{
           base: 1,
-          md: 3,
+          md: 2,
         }}
         gap="6"
       >
-        <Card />
-        <Card />
-        <Card />
+        <Card>
+          <State label={"Total Teams"} value={"887"} />
+        </Card>
+        <Card>
+          <State label={"Total Members"} value={"71,887"} />
+        </Card>
       </SimpleGrid>
     </Stack>
     <Card minH="xs" />
   </Stack>
 );
-const Card = (props) => (
-  <Box
-    minH="36"
-    bg="bg-surface"
-    boxShadow={useColorModeValue("lg", "dark-lg")}
-    borderRadius="lg"
-    {...props}
-  />
-);
+const Card = (props) => {
+  console.log(props);
+  return (
+    <Box
+      minH="36"
+      bg="bg-surface"
+      boxShadow={useColorModeValue("lg", "dark-lg")}
+      borderRadius="lg"
+    >
+      {props.children}
+    </Box>
+  );
+};

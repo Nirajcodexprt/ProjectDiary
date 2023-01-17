@@ -13,14 +13,14 @@ import {
   Th,
   Thead,
   Tr,
-} from '@chakra-ui/react'
-import * as React from 'react'
-import { FiEdit2, FiTrash2 } from 'react-icons/fi'
-import { IoArrowDown } from 'react-icons/io5'
-import { Rating } from './Rating'
-import { members } from './data'
+} from "@chakra-ui/react";
+import * as React from "react";
+import { FiEdit2, FiTrash2 } from "react-icons/fi";
+import { IoArrowDown } from "react-icons/io5";
+import { Rating } from "./Rating";
+import { members } from "./data";
 
-export const MemberTable = (props) => (
+const MemberTable = (props) => (
   <Table {...props}>
     <Thead>
       <Tr>
@@ -53,7 +53,7 @@ export const MemberTable = (props) => (
           <Td>
             <Badge
               size="sm"
-              colorScheme={member.status === 'active' ? 'green' : 'red'}
+              colorScheme={member.status === "active" ? "green" : "red"}
             >
               {member.status}
             </Badge>
@@ -80,4 +80,5 @@ export const MemberTable = (props) => (
       ))}
     </Tbody>
   </Table>
-)
+);
+export default MemberTable;

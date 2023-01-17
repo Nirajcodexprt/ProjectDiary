@@ -12,42 +12,42 @@ import {
   Text,
   useBreakpointValue,
   useColorModeValue,
-} from '@chakra-ui/react'
-import * as React from 'react'
-import { FiSearch } from 'react-icons/fi'
-import AfterAuth from '../../../HOC/AfterAuth'
-import { MemberTable } from './MemberTable'
+} from "@chakra-ui/react";
+import * as React from "react";
+import { FiSearch } from "react-icons/fi";
+import AfterAuth from "../../../HOC/AfterAuth";
+import MemberTable from "./MemberTable";
 
 const Tables = () => {
   const isMobile = useBreakpointValue({
     base: true,
     md: false,
-  })
+  });
   return (
     <AfterAuth>
       <Box
         bg="bg-surface"
         boxShadow={{
-          base: 'none',
-          md: useColorModeValue('sm', 'sm-dark'),
+          base: "none",
+          md: useColorModeValue("sm", "sm-dark"),
         }}
         borderRadius={useBreakpointValue({
-          base: 'none',
-          md: 'lg',
+          base: "none",
+          md: "lg",
         })}
       >
         <Stack spacing="5">
           <Box
             px={{
-              base: '4',
-              md: '6',
+              base: "4",
+              md: "6",
             }}
             pt="5"
           >
             <Stack
               direction={{
-                base: 'column',
-                md: 'row',
+                base: "column",
+                md: "row",
               }}
               justify="space-between"
             >
@@ -65,8 +65,8 @@ const Tables = () => {
           </Box>
           <Box
             px={{
-              base: '4',
-              md: '6',
+              base: "4",
+              md: "6",
             }}
             pb="5"
           >
@@ -80,8 +80,8 @@ const Tables = () => {
                 spacing="3"
                 justifyContent="space-between"
                 width={{
-                  base: 'full',
-                  md: 'auto',
+                  base: "full",
+                  md: "auto",
                 }}
                 variant="secondary"
               >
@@ -93,6 +93,6 @@ const Tables = () => {
         </Stack>
       </Box>
     </AfterAuth>
-  )
-}
-export default Tables
+  );
+};
+export default Tables;

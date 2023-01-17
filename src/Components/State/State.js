@@ -8,8 +8,7 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 
-export const Stat = (props) => {
-  const { label, value } = props;
+const State = ({ label, value }) => {
   return (
     <Box
       px={{ base: "4", md: "6" }}
@@ -22,10 +21,11 @@ export const Stat = (props) => {
         <Text fontSize="sm" color="muted">
           {label}
         </Text>
-        <Heading size={useBreakpointValue({ base: "sm", md: "md" })}>
+        <Heading pl={5} size={useBreakpointValue({ base: "sm", md: "2xl" })}>
           {value}
         </Heading>
       </Stack>
     </Box>
   );
 };
+export default State;
