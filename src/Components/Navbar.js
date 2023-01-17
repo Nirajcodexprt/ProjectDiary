@@ -16,11 +16,10 @@ import {
 } from '@chakra-ui/react'
 import * as React from 'react'
 import { FiHelpCircle, FiMenu, FiSearch, FiSettings } from 'react-icons/fi'
-import { Logo } from './Logo'
 import { useNavigate } from 'react-router-dom'
-import Card from '../Profile/Card'
+import Card from './Profile/Card'
 
-export default function Nav({colorMode,toggleColorMode}) {
+export default function Nav({ colorMode, toggleColorMode }) {
   const isDesktop = useBreakpointValue({
     base: false,
     sm: true,
@@ -45,7 +44,7 @@ export default function Nav({colorMode,toggleColorMode}) {
     >
       <Flex justify="space-between">
         {/* <Logo /> */}
-        <img width='230px' style={{padding:'20px',borderRadius:'25px'}} src= {colorMode === "light" ? "/assets/light.png" :"/assets/dark.png"} />
+        <img width='230px' style={{ padding: '20px', borderRadius: '25px' }} src={colorMode === "light" ? "/assets/light.png" : "/assets/WB.png"} />
         {isDesktop ? (
           <HStack spacing="4">
             <ButtonGroup variant="ghost-on-accent" spacing="1">
@@ -62,14 +61,14 @@ export default function Nav({colorMode,toggleColorMode}) {
               />
             </ButtonGroup>
             <Box onClick={onToggle} cursor='pointer' gap={'2'} alignItems={'center'} display={'flex'}>
-            <Text>Christoph Winston</Text>
-            <Avatar
-              
-              boxSize="10"
-              cursor={'pointer'}
-              name="Christoph Winston"
-              src="https://tinyurl.com/yhkm2ek8"
-            />
+              <Text>Christoph Winston</Text>
+              <Avatar
+
+                boxSize="10"
+                cursor={'pointer'}
+                name="Christoph Winston"
+                src="https://tinyurl.com/yhkm2ek8"
+              />
             </Box>
           </HStack>
         ) : (

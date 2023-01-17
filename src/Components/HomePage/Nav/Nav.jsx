@@ -12,7 +12,7 @@ import {
   useColorMode,
 } from '@chakra-ui/react'
 import * as React from 'react'
-import { Logo } from '../../NavBar/Logo'
+// import { Logo } from '../../NavBar/Logo'
 import { useNavigate } from 'react-router-dom'
 
 const Nav = () => {
@@ -20,7 +20,7 @@ const Nav = () => {
   const navigate = useNavigate()
   return (
     <HStack w={'100vw'} position={'fixed'} py={5} px={5}>
-      <Logo />
+      {/* <Logo /> */}
       <Flex pos={'absolute'} gap={5} right={'50px'}>
         <IconButton
           onClick={toggleColorMode}

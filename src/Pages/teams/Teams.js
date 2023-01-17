@@ -8,7 +8,6 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import React from 'react'
-import Tables from './table/Tables.jsx'
 import AfterAuth from '../../HOC/AfterAuth'
 import { NavLink } from 'react-router-dom'
 const Teams = () => {
@@ -24,7 +23,7 @@ const Teams = () => {
           </ButtonGroup>
         </HStack>
         <Box>
-          <Tables />
+          {/* <Tables /> */}
         </Box>
       </Box>
     </AfterAuth>
