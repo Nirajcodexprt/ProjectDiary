@@ -7,10 +7,11 @@ import {
   HStack,
   useColorModeValue,
   VStack,
-} from '@chakra-ui/react'
-import React from 'react'
-import AfterAuth from '../../HOC/AfterAuth'
-import { NavLink } from 'react-router-dom'
+} from "@chakra-ui/react";
+import React from "react";
+import AfterAuth from "../../HOC/AfterAuth";
+import { NavLink } from "react-router-dom";
+import MemberTable from "../Member/table/MemberTable";
 const Teams = () => {
 
   const BtnColor = useColorModeValue('#000', '#fff')
@@ -24,7 +25,7 @@ const Teams = () => {
         </NavLink>
       </HStack>
     </AfterAuth>
-  )
-}
+  );
+};
 
-export default Teams
+export default Teams;
