@@ -3,6 +3,7 @@ import {
   Button,
   ButtonGroup,
   Container,
+  extendTheme,
   FormControl,
   FormLabel,
   Heading,
@@ -10,34 +11,51 @@ import {
   Input,
   TableContainer,
   VStack,
-} from '@chakra-ui/react'
-import React from 'react'
-import Tables from './table/Tables.jsx'
-import AfterAuth from '../../HOC/AfterAuth'
-import List from './List/List.jsx'
+} from "@chakra-ui/react";
+import React, { useState } from "react";
+import Tables from "./table/Tables.jsx";
+import AfterAuth from "../../HOC/AfterAuth";
+import List from "./List/List.jsx";
+import {
+  MultiSelect,
+  MultiSelectTheme,
+  useMultiSelect,
+} from "chakra-multiselect";
 const CreateTeam = () => {
+  const { value, options, onChange } = useMultiSelect({
+    value: [],
+    options: ["ab", "cd"],
+  });
   return (
     <AfterAuth>
       <Box p={4}>
-        <Box display={'flex'} justifyContent="space-between">
+        <Box display={"flex"} justifyContent="space-between">
           <Heading>Create Team</Heading>
           <Button>Create Team</Button>
         </Box>
         <Box pl={10}>
           <FormControl py={5}>
             <FormLabel>Team Name</FormLabel>
-            <Input type="text" width={'50%'} />
+            <Input type="text" width={"50%"} />
           </FormControl>
           <FormControl py={5}>
             <FormLabel>Team Password</FormLabel>
-            <Input type="password" width={'50%'} />
+            <Input type="password" width={"50%"} />
           </FormControl>
           <FormLabel pt={10}>Select Team Member</FormLabel>
-          <List />
+          <Box width={"40%"}>
+            <MultiSelect
+              options={options}
+              value={value}
+              label="Choose an item"
+              onChange={onChange}
+              create
+            />
+          </Box>
         </Box>
       </Box>
     </AfterAuth>
-  )
-}
+  );
+};
 
-export default CreateTeam
+export default CreateTeam;
