@@ -6,13 +6,13 @@ import SignUp from './Components/SignUp/SignUp'
 import UserAuth from './Components/SignUp/UserAuth'
 import UserInfo from './Components/SignUp/UserInfo'
 import Home from './Components/HomePage/Home'
-import Dashboard from './Components/Dashboard/Dashboard'
+import Dashboard from './Pages/Dashboard/Dashboard'
 import ForgotPass from './Components/ForgotPassword/ForgotPass'
-import Team from './Components/Team/Team'
-import Project from './Components/_projects/Project'
-import Member from './Components/Member/Member'
+import Project from './Pages/Projects/Project'
+import Member from './Pages/Member/Member'
 import { useColorMode } from '@chakra-ui/react'
-import CreateProject from './Components/_projects/CreateProject'
+import CreateProject from './Pages/Projects/CreateProject'
+import Teams from './Pages/teams/Teams'
 
 function App() {
 
@@ -28,7 +28,7 @@ function App() {
         <Route path="/userauth" element={<UserAuth />} />
         <Route path="/signin" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/teams" element={<Team />} />
+        <Route path="/teams" element={<Teams />} />
         <Route path="/members" element={<Member />} />
 
         <Route path="/projects" element={<Project />} />

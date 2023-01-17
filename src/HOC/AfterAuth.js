@@ -6,7 +6,7 @@ import {
 
 } from '@chakra-ui/react'
 import * as React from 'react'
-import Sidebar from '../Components/Dashboard/Sidebar'
+import Sidebar from '../Components/Sidebar/Sidebar'
 import Nav from '../Components/NavBar/Nav'
 import { useColorMode, useColorModeValue } from '@chakra-ui/react'
 
