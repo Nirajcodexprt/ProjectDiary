@@ -42,3 +42,8 @@
     font-size: 25px !important;
   }
 }
+
+.userImg{
+  height: 180px !important;
+  border-Radius:6px; 
+}

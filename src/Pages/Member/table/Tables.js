@@ -3,6 +3,7 @@ import {
   Button,
   ButtonGroup,
   Container,
+  Heading,
   HStack,
   Icon,
   Input,
@@ -38,11 +39,6 @@ const Tables = () => {
       >
         <Stack spacing="5">
           <Box
-            px={{
-              base: '4',
-              md: '6',
-            }}
-            pt="5"
           >
             <Stack
               direction={{
@@ -51,8 +47,8 @@ const Tables = () => {
               }}
               justify="space-between"
             >
-              <Box></Box>
-              <InputGroup maxW="xs">
+              <Heading>Members</Heading>
+              <InputGroup width='500px'>
                 <InputLeftElement pointerEvents="none">
                   <Icon as={FiSearch} color="muted" boxSize="5" />
                 </InputLeftElement>
@@ -64,10 +60,6 @@ const Tables = () => {
             <MemberTable />
           </Box>
           <Box
-            px={{
-              base: '4',
-              md: '6',
-            }}
             pb="5"
           >
             <HStack spacing="3" justify="space-between">

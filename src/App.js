@@ -14,6 +14,7 @@ import { useColorMode } from '@chakra-ui/react'
 import CreateProject from './Pages/Projects/CreateProject'
 import Teams from './Pages/teams/Teams'
 import CreateTeam from './Pages/teams/CreateTeam'
+import EditProfile from './Pages/Profile/ViewProfile'
 
 function App() {
   const { colorMode, toggleColorMode } = useColorMode()
@@ -30,6 +31,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/teams" element={<Teams />} />
         <Route path="/members" element={<Member />} />
+
+        <Route path="/ViewProfile" element={<EditProfile />} />
 
         <Route path="/projects" element={<Project />} />
         <Route path="/teams/CreateTeam" element={<CreateTeam />} />

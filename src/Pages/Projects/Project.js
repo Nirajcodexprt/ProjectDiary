@@ -5,7 +5,7 @@ import AfterAuth from '../../HOC/AfterAuth'
 
 function Project() {
 
-    const BtnColor = useColorModeValue('#fff', '#000')
+    const BtnColor = useColorModeValue('#000', '#fff')
 
     return (
         <>

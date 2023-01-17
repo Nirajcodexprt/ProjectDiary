@@ -33,6 +33,8 @@ const AfterAuth = ({ children }) => {
                 borderRadius={4}
                 mt="20"
                 mx={3}
+                pt='30px'
+                px='30px'
             >
                 {children}
             </Box>

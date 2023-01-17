@@ -6,46 +6,15 @@ import AfterAuth from '../../HOC/AfterAuth'
 function CreateProject() {
 
     const navigate = useNavigate()
-    const BtnColor = useColorModeValue('#fff', '#000')
+    const BtnColor = useColorModeValue('#000', '#fff')
 
     return (
         <>
             <AfterAuth>
                 <HStack justifyContent='space-between'>
                     <Heading>Create Project</Heading>
-                    <Button bg={'cadetblue'} _hover='none' fontWeight='800' color={BtnColor} onClick={() => navigate('/projects')}>Cancel</Button>
+                    <Button bg={'cadetblue'} _hover='none' fontWeight='800' color={BtnColor} onClick={() => navigate(-1)}>Back</Button>
                 </HStack>
-                {/* <Box>
-                    <HStack mt={6}>
-                        <FormControl id="first-name">
-                            <FormLabel>Project Name</FormLabel>
-                            <Input placeholder="Project Name" type='text' />
-                        </FormControl>
-                        <FormControl id="first-name">
-                            <FormLabel>Project Budget</FormLabel>
-                            <Input placeholder="Project Budget" type='text' />
-                        </FormControl>
-                    </HStack>
-                    <HStack mt={6}>
-                        <FormControl id="first-name">
-                            <FormLabel>Project Details</FormLabel>
-                            <Textarea placeholder="Project Details" type='text' />
-                        </FormControl>
-                    </HStack>
-                    <HStack mt={6}>
-                        <FormControl id="first-name">
-                            <FormLabel>Starting Date</FormLabel>
-                            <Input type='date' />
-                        </FormControl>
-                        <FormControl id="first-name">
-                            <FormLabel>Delivery Date</FormLabel>
-                            <Input type='date' />
-                        </FormControl>
-                    </HStack>
-                    <HStack mt={6} justifyContent='end'>
-                        <Button bg={'cadetblue'} _hover='none' fontWeight='700' color={BtnColor}>Save</Button>
-                    </HStack>
-                </Box> */}
                 <Box
                     as="form"
                     bg="bg-surface"
@@ -54,10 +23,6 @@ function CreateProject() {
                 >
                     <Stack
                         spacing="5"
-                        px={{
-                            base: '4',
-                            md: '6',
-                        }}
                         py={{
                             base: '5',
                             md: '6',
@@ -104,10 +69,6 @@ function CreateProject() {
                     <Flex
                         direction="row-reverse"
                         py="4"
-                        px={{
-                            base: '4',
-                            md: '6',
-                        }}
                     >
                         <Button bg={'cadetblue'} _hover='none' fontWeight='800' color={BtnColor} >Save</Button>
                     </Flex>

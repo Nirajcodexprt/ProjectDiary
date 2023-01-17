@@ -5,27 +5,24 @@ import {
   Container,
   Heading,
   HStack,
+  useColorModeValue,
   VStack,
 } from '@chakra-ui/react'
 import React from 'react'
 import AfterAuth from '../../HOC/AfterAuth'
 import { NavLink } from 'react-router-dom'
 const Teams = () => {
+
+  const BtnColor = useColorModeValue('#000', '#fff')
+
   return (
     <AfterAuth>
-      <Box p={2}>
-        <HStack w={'100%'} justifyContent={'space-between'}>
-          <Heading>Teams</Heading>
-          <ButtonGroup>
-            <NavLink to={'/teams/CreateTeam'}>
-              <Button>Create Team</Button>
-            </NavLink>
-          </ButtonGroup>
-        </HStack>
-        <Box>
-          {/* <Tables /> */}
-        </Box>
-      </Box>
+      <HStack justifyContent={'space-between'}>
+        <Heading>Teams</Heading>
+        <NavLink to={'/teams/CreateTeam'}>
+          <Button bg={'cadetblue'} _hover='none' fontWeight='700' color={BtnColor}>Create Team</Button>
+        </NavLink>
+      </HStack>
     </AfterAuth>
   )
 }
