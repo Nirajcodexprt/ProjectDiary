@@ -62,37 +62,7 @@ function CreateProject() {
             Cancel
           </Button>
         </HStack>
-        {/* <Box>
-                    <HStack mt={6}>
-                        <FormControl id="first-name">
-                            <FormLabel>Project Name</FormLabel>
-                            <Input placeholder="Project Name" type='text' />
-                        </FormControl>
-                        <FormControl id="first-name">
-                            <FormLabel>Project Budget</FormLabel>
-                            <Input placeholder="Project Budget" type='text' />
-                        </FormControl>
-                    </HStack>
-                    <HStack mt={6}>
-                        <FormControl id="first-name">
-                            <FormLabel>Project Details</FormLabel>
-                            <Textarea placeholder="Project Details" type='text' />
-                        </FormControl>
-                    </HStack>
-                    <HStack mt={6}>
-                        <FormControl id="first-name">
-                            <FormLabel>Starting Date</FormLabel>
-                            <Input type='date' />
-                        </FormControl>
-                        <FormControl id="first-name">
-                            <FormLabel>Delivery Date</FormLabel>
-                            <Input type='date' />
-                        </FormControl>
-                    </HStack>
-                    <HStack mt={6} justifyContent='end'>
-                        <Button bg={'cadetblue'} _hover='none' fontWeight='700' color={BtnColor}>Save</Button>
-                    </HStack>
-                </Box> */}
+
         <Box
           as="form"
           bg="bg-surface"
