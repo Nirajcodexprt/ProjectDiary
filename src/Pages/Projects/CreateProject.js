@@ -20,7 +20,6 @@ import AfterAuth from "../../HOC/AfterAuth";
 import ThirdPartyInput from "./ThirdPartyInput";
 
 function CreateProject() {
-  const navigate = useNavigate();
   let temp = [
     {
       name: "",
@@ -38,7 +37,6 @@ function CreateProject() {
       Notes: "",
     },
   ]);
-  const BtnColor = useColorModeValue("#fff", "#000");
 
   const handleAddCreadential = () => {
     setCredentials([
@@ -89,10 +87,6 @@ function CreateProject() {
         >
           <Stack
             spacing="5"
-            px={{
-              base: "4",
-              md: "6",
-            }}
             py={{
               base: "5",
               md: "6",
@@ -152,10 +146,6 @@ function CreateProject() {
           <Flex
             direction="row-reverse"
             py="4"
-            px={{
-              base: "4",
-              md: "6",
-            }}
           >
             <Button
               bg={"cadetblue"}

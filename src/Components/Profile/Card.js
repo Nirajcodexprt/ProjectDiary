@@ -8,12 +8,20 @@ import {
 import * as React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CardWithAvatar } from './CardWithAvatar'
+import ChangePassword from './ChangePassword'
 import { FollowerCount } from './FollowerCount'
 import { UserInfo } from './UserInfo'
 
 const Card = () => {
 
   const navigate = useNavigate()
+
+  const [open, setOpen] = React.useState(false)
+
+  const logout = () => {
+    localStorage.removeItem('login')
+    navigate("/signin")
+  }
 
   return (
     <CardWithAvatar
@@ -37,6 +45,7 @@ const Card = () => {
           rounded="full"
           size="sm"
           width="full"
+          onClick={() => setOpen(true)}
         >
           Change Password
         </Button>
@@ -46,10 +55,12 @@ const Card = () => {
           rounded="full"
           size="sm"
           width="full"
+          onClick={logout}
         >
           Log Out
         </Button>
       </Flex>
+      <ChangePassword open={open} onClose={() => setOpen(false)} />
     </CardWithAvatar>
   )
 }

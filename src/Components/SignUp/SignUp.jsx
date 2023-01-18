@@ -19,6 +19,7 @@ const SignUp = () => {
   const btnbg = useColorModeValue('#011729', 'white')
   const bx = useColorModeValue('rgb(206, 206, 206)', 'rgb(71, 71, 71)')
   const navigate = useNavigate()
+
   return (
     <Box
       bgGradient={{
@@ -94,7 +95,7 @@ const SignUp = () => {
               variant="link"
               colorScheme="blue"
               size="sm"
-              onClick={() => navigate('/signin')}
+              onClick={()=> navigate('/signin')}
             >
               Sign In
             </Button>

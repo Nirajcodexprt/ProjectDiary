@@ -8,7 +8,7 @@ import {
   useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react'
-import * as React from 'react'
+import React, { useEffect } from 'react'
 import Floating from './Floating'
 import { Logo } from './Logo'
 import { useNavigate } from 'react-router-dom'
@@ -19,6 +19,22 @@ const Login = () => {
   const btnbg = useColorModeValue('#011729', 'white')
   const bx = useColorModeValue('rgb(206, 206, 206)', 'rgb(71, 71, 71)')
   const navigate = useNavigate()
+
+  const login = () => {
+    localStorage.setItem("login", true);
+    navigate('/dashboard')
+  };
+
+  useEffect(() => {
+		let signin = localStorage.getItem("login");
+		if (signin) {
+			navigate("/dashboard");
+		}
+    else{
+      navigate('/signin')
+    }
+	}, []);
+
   return (
     <Box
       bgGradient={{
@@ -79,7 +95,7 @@ const Login = () => {
                 _hover={{ bg: 'blue.600' }}
                 _active={{ bg: 'blue.500' }}
                 variant="solid"
-                onClick={() => navigate('/dashboard')}
+                onClick={login}
               >
                 Sign In
               </Button>

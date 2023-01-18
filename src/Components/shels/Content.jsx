@@ -29,11 +29,6 @@ export const Content = () => (
     >
       <Stack spacing="1">
         <Heading
-          size={useBreakpointValue({
-            base: "xs",
-            lg: "sm",
-          })}
-          fontWeight="medium"
         >
           Dashboard
         </Heading>
