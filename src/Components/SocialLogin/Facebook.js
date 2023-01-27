@@ -19,10 +19,11 @@ const Facebook = () => {
     alert("logout success");
   }, []);
   const REDIRECT_URI = "http://localhost:3000";
-  const onLogout = useCallback(() => {}, []);
+  const onLogout = useCallback(() => { }, []);
   return (
     <LoginSocialFacebook
-      appId={process.env.REACT_APP_FB_APP_ID || "559755356055260"}
+      appId={process.env.REACT_APP_FB_APP_ID || "f66636bf3acded9d634756f993c70841"}
+
       // fieldsProfile={
       //   "id,first_name,last_name,middle_name,name,name_format,picture,short_name,email,gender"
       // }

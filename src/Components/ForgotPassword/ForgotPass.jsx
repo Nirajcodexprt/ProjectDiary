@@ -84,7 +84,7 @@ const ForgotPass = () => {
               </Button>
             </Stack>
           </Stack>
-          <Stack spacing="0.5" align="center">
+          {/* <Stack spacing="0.5" align="center">
             <Text fontSize="sm" color="muted">
               if Doesn't Signed Up
             </Text>
@@ -96,7 +96,7 @@ const ForgotPass = () => {
             >
               Sign Up
             </Button>
-          </Stack>
+          </Stack> */}
           <Text fontSize="xs" color="subtle" textAlign="center">
             By continuing, you acknowledge that you have read, understood, and
             agree to our terms and condition

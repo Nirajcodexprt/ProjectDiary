@@ -23,7 +23,7 @@ const Google = () => {
     alert("logout success");
   }, []);
   const REDIRECT_URI = "http://localhost:3000";
-  const onLogout = useCallback(() => {}, []);
+  const onLogout = useCallback(() => { }, []);
   return (
     <>
       <LoginSocialGoogle
@@ -41,7 +41,7 @@ const Google = () => {
           console.log(err);
         }}
       >
-        <GoogleLoginButton className="GoogleButton hover" text="" />
+        <GoogleLoginButton className="GoogleButton" text="" />
       </LoginSocialGoogle>
     </>
   );

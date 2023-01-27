@@ -114,11 +114,11 @@ const Login = () => {
             }}
           >
             <Google />
-            <Facebook />
+            {/* <Facebook /> */}
             <Github />
           </Box>
-          <Stack spacing="0.5" style={{ margin: "10px" }} align="center">
-            <Text fontSize="sm" color="muted">
+          <Stack spacing="0.5" style={{ margin: "10px" }}>
+            <Text fontSize="sm" textAlign={'center'} color="muted">
               if Doesn't Signed Up
             </Text>
             <Button
@@ -129,7 +129,28 @@ const Login = () => {
             >
               Sign Up
             </Button>
+          <Flex justifyContent={'space-between'}>
+          <Button
+              variant="link"
+              colorScheme="blue"
+              size="sm"
+              mt={2}
+              onClick={() => navigate("/forgotpass")}
+            >
+              Forgot Password
+            </Button>
+            <Button
+              variant="link"
+              colorScheme="blue"
+              size="sm"
+              mt={2}
+              onClick={() => navigate("")}
+            >
+             Change Password
+            </Button>
+          </Flex>
           </Stack>
+
 
           <Text
             style={{ marginTop: "0px" }}
