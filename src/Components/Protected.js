@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import SignUp from "./SignUp/SignUp";
 
 function Protected(props) {
     const { Component } = props;
@@ -8,7 +9,7 @@ function Protected(props) {
     useEffect(() => {
         let signin = localStorage.getItem("login");
         if (!signin) {
-            navigate("/");
+            navigate("/signin");
         }
     }, []);
     return <Component />;

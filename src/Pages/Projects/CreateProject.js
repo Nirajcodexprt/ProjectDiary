@@ -16,10 +16,15 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import AfterAuth from "../../HOC/AfterAuth";
+import { mainAtom } from "../../recoil/Atom";
 import ThirdPartyInput from "./ThirdPartyInput";
 
 function CreateProject() {
+
+  const [projects, setProjects] = useRecoilState(mainAtom)
+
   let temp = [
     {
       name: "",
@@ -63,6 +68,31 @@ function CreateProject() {
     console.log(OriginalData);
     setCredentials([...OriginalData]);
   };
+
+  const [inputItem, setInputItem] = useState(
+    {
+      projectName: '',
+      projectBudget: '',
+      StartingDate: '',
+      DeliveryDate: '',
+    }
+  )
+
+  const handalChange = (e) => {
+    setInputItem({
+      ...inputItem,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const submitData = () => {
+    setProjects(
+      [...projects, inputItem]
+    )
+    navigate('/projects')
+    console.log('inputItem', inputItem)
+  }
+  console.log('projects', projects)
   return (
     <>
       <AfterAuth>
@@ -101,16 +131,16 @@ function CreateProject() {
             >
               <FormControl id="firstName">
                 <FormLabel>Project Name</FormLabel>
-                <Input type="text" placeholder="Project Name" />
+                <Input onChange={handalChange} name='projectName' type="text" placeholder="Project Name" />
               </FormControl>
               <FormControl id="lastName">
                 <FormLabel>Project Budget</FormLabel>
-                <Input type="text" placeholder="Project Budget" />
+                <Input onChange={handalChange} name='projectBudget' type="text" placeholder="Project Budget" />
               </FormControl>
             </Stack>
             <FormControl id="street">
               <FormLabel>Project Details</FormLabel>
-              <Textarea type="text" placeholder="Project Details" />
+              <Textarea onChange={handalChange} type="text" placeholder="Project Details" />
             </FormControl>
             <FormControl
               justifyContent={"space-between"}
@@ -134,11 +164,11 @@ function CreateProject() {
             >
               <FormControl id="city">
                 <FormLabel>Starting Date</FormLabel>
-                <Input type={"date"} />
+                <Input onChange={handalChange} name='StartingDate' type={"date"} />
               </FormControl>
               <FormControl id="state">
                 <FormLabel>Delivery Date</FormLabel>
-                <Input type={"date"} />
+                <Input onChange={handalChange} name='DeliveryDate' type={"date"} />
               </FormControl>
             </Stack>
           </Stack>
@@ -152,77 +182,10 @@ function CreateProject() {
               _hover="none"
               fontWeight="800"
               color={BtnColor}
+              onClick={submitData}
             >
               Save
             </Button>
-          </Flex>
-        </Box>
-      </AfterAuth>
-    </>
-  );
-  return (
-    <>
-      <AfterAuth>
-        <HStack justifyContent='space-between'>
-          <Heading>Create Project</Heading>
-          <Button bg={'cadetblue'} _hover='none' fontWeight='800' color={BtnColor} onClick={() => navigate(-1)}>Back</Button>
-        </HStack>
-        <Box
-          as="form"
-          bg="bg-surface"
-          boxShadow={useColorModeValue('sm', 'sm-dark')}
-          borderRadius="lg"
-        >
-          <Stack
-            spacing="5"
-            py={{
-              base: '5',
-              md: '6',
-            }}
-          >
-            <Stack
-              spacing="6"
-              direction={{
-                base: 'column',
-                md: 'row',
-              }}
-            >
-              <FormControl id="firstName">
-                <FormLabel>Project Name</FormLabel>
-                <Input type='text' placeholder='Project Name' />
-              </FormControl>
-              <FormControl id="lastName">
-                <FormLabel>Project Budget</FormLabel>
-                <Input type='text' placeholder='Project Budget' />
-              </FormControl>
-            </Stack>
-            <FormControl id="street">
-              <FormLabel>Project Details</FormLabel>
-              <Textarea type='text' placeholder='Project Details' />
-            </FormControl>
-            <Stack
-              spacing="6"
-              direction={{
-                base: 'column',
-                md: 'row',
-              }}
-            >
-              <FormControl id="city">
-                <FormLabel>Starting Date</FormLabel>
-                <Input type={'date'} />
-              </FormControl>
-              <FormControl id="state">
-                <FormLabel>Delivery Date</FormLabel>
-                <Input type={'date'} />
-              </FormControl>
-            </Stack>
-          </Stack>
-          <Divider />
-          <Flex
-            direction="row-reverse"
-            py="4"
-          >
-            <Button bg={'cadetblue'} _hover='none' fontWeight='800' color={BtnColor} >Save</Button>
           </Flex>
         </Box>
       </AfterAuth>

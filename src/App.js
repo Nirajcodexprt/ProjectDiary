@@ -25,11 +25,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Protected Component={Home} />} />
+        <Route path="/" element={<Home />} />
         <Route path="/signin" element={<Protected Component={Login} />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/Userinfo" element={<UserInfo />} />
-        <Route path="/userauth" element={<UserAuth />} />
+        <Route path="/signup" element={<Protected Component={SignUp} />} />
+        <Route path="/Userinfo" element={<Protected Component={UserInfo} />} />
+        <Route path="/userauth" element={<Protected Component={UserAuth} />} />
         <Route path="/dashboard" element={<Protected Component={Dashboard} />} />
         <Route path="/teams" element={<Protected Component={Teams} />} />
         <Route path="/members" element={<Protected Component={Member} />} />

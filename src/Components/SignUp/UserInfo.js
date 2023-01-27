@@ -20,6 +20,15 @@ const UserInfo = () => {
   const btnbg = useColorModeValue('#011729', 'white')
   const bx = useColorModeValue('rgb(206, 206, 206)', 'rgb(71, 71, 71)')
   const navigate = useNavigate()
+  React.useEffect(() => {
+    let signin = localStorage.getItem("login");
+    if (signin) {
+      navigate("/dashboard");
+    }
+    else {
+
+    }
+  }, []);
   return (
     <Box
       bgGradient={{
