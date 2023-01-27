@@ -5,6 +5,7 @@ import App from "./App";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import reportWebVitals from "./reportWebVitals";
 import { MultiSelectTheme } from "chakra-multiselect";
+import { RecoilRoot } from "recoil";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const theme = extendTheme({
@@ -14,9 +15,11 @@ const theme = extendTheme({
 });
 root.render(
   <React.StrictMode>
-    <ChakraProvider theme={theme}>
-      <App />
-    </ChakraProvider>
+    <RecoilRoot>
+      <ChakraProvider theme={theme}>
+        <App />
+      </ChakraProvider>
+    </RecoilRoot>
   </React.StrictMode>
 );
 

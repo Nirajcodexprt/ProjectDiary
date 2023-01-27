@@ -16,7 +16,9 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import AfterAuth from "../../HOC/AfterAuth";
+import { mainAtom } from "../../recoil/Atom";
 import ThirdPartyInput from "./ThirdPartyInput";
 import SelectManager from "./SelectManager";
 import SelectTeam from "./SelectTeam";
@@ -24,6 +26,8 @@ import SelectMember from "./SelectMember";
 import SelectTranslator from "./SelectTranslator";
 
 function CreateProject() {
+  const [projects, setProjects] = useRecoilState(mainAtom);
+
   let temp = [
     {
       name: "",
@@ -67,6 +71,27 @@ function CreateProject() {
     console.log(OriginalData);
     setCredentials([...OriginalData]);
   };
+
+  const [inputItem, setInputItem] = useState({
+    projectName: "",
+    projectBudget: "",
+    StartingDate: "",
+    DeliveryDate: "",
+  });
+
+  const handalChange = (e) => {
+    setInputItem({
+      ...inputItem,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const submitData = () => {
+    setProjects([...projects, inputItem]);
+    navigate("/projects");
+    console.log("inputItem", inputItem);
+  };
+  console.log("projects", projects);
   return (
     <>
       <AfterAuth>
@@ -105,16 +130,30 @@ function CreateProject() {
             >
               <FormControl id="firstName">
                 <FormLabel>Project Name</FormLabel>
-                <Input type="text" placeholder="Project Name" />
+                <Input
+                  onChange={handalChange}
+                  name="projectName"
+                  type="text"
+                  placeholder="Project Name"
+                />
               </FormControl>
               <FormControl id="lastName">
                 <FormLabel>Project Budget</FormLabel>
-                <Input type="text" placeholder="Project Budget" />
+                <Input
+                  onChange={handalChange}
+                  name="projectBudget"
+                  type="text"
+                  placeholder="Project Budget"
+                />
               </FormControl>
             </Stack>
             <FormControl id="street">
               <FormLabel>Project Details</FormLabel>
-              <Textarea type="text" placeholder="Project Details" />
+              <Textarea
+                onChange={handalChange}
+                type="text"
+                placeholder="Project Details"
+              />
             </FormControl>
             <FormControl
               justifyContent={"space-between"}
@@ -138,11 +177,19 @@ function CreateProject() {
             >
               <FormControl id="city">
                 <FormLabel>Starting Date</FormLabel>
-                <Input type={"date"} />
+                <Input
+                  onChange={handalChange}
+                  name="StartingDate"
+                  type={"date"}
+                />
               </FormControl>
               <FormControl id="state">
                 <FormLabel>Delivery Date</FormLabel>
-                <Input type={"date"} />
+                <Input
+                  onChange={handalChange}
+                  name="DeliveryDate"
+                  type={"date"}
+                />
               </FormControl>
             </Stack>
             <Flex gap={10}>
@@ -161,6 +208,7 @@ function CreateProject() {
               _hover="none"
               fontWeight="800"
               color={BtnColor}
+              onClick={submitData}
             >
               Save
             </Button>

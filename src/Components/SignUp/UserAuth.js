@@ -20,6 +20,20 @@ const UserAuth = () => {
   const btnbg = useColorModeValue('#011729', 'white')
   const navigate = useNavigate()
   const bx = useColorModeValue('rgb(206, 206, 206)', 'rgb(71, 71, 71)')
+  const login = () => {
+    localStorage.setItem("login", true);
+    navigate('/dashboard')
+  };
+
+  React.useEffect(() => {
+    let signin = localStorage.getItem("login");
+    if (signin) {
+      navigate("/dashboard");
+    }
+    else {
+
+    }
+  }, []);
   return (
     <Box
       bgGradient={{
@@ -91,7 +105,7 @@ const UserAuth = () => {
                   _hover={{ bg: 'blue.600' }}
                   _active={{ bg: 'blue.500' }}
                   variant="solid"
-                  onClick={() => navigate('/dashboard')}
+                  onClick={login}
                 >
                   Sign In
                 </Button>
