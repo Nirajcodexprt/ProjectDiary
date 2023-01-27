@@ -17,7 +17,7 @@ const AfterAuth = ({ children }) => {
     lg: "row",
     md: "col",
   });
-  const [first, setfirst] = useState(main);
+  const [first, setfirst] = React.useState(main);
   console.log("main", main);
   return (
     <Flex
