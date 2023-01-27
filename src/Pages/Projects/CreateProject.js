@@ -18,6 +18,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AfterAuth from "../../HOC/AfterAuth";
 import ThirdPartyInput from "./ThirdPartyInput";
+import SelectManager from "./SelectManager";
+import SelectTeam from "./SelectTeam";
+import SelectMember from "./SelectMember";
+import SelectTranslator from "./SelectTranslator";
 
 function CreateProject() {
   let temp = [
@@ -49,8 +53,8 @@ function CreateProject() {
       },
     ]);
   };
-  const navigate = useNavigate()
-  const BtnColor = useColorModeValue('#000', '#fff')
+  const navigate = useNavigate();
+  const BtnColor = useColorModeValue("#000", "#fff");
 
   const removeRow = (index) => {
     let OriginalData = [...creadential];
@@ -141,12 +145,17 @@ function CreateProject() {
                 <Input type={"date"} />
               </FormControl>
             </Stack>
+            <Flex gap={10}>
+              <SelectManager style={{ width: "70%" }} />
+              <SelectTranslator />
+            </Flex>
+            <Flex gap={10}>
+              <SelectTeam style={{ width: "70%" }} />
+              <SelectMember />
+            </Flex>
           </Stack>
           <Divider />
-          <Flex
-            direction="row-reverse"
-            py="4"
-          >
+          <Flex direction="row-reverse" py="4">
             <Button
               bg={"cadetblue"}
               _hover="none"
@@ -163,71 +172,83 @@ function CreateProject() {
   return (
     <>
       <AfterAuth>
-        <HStack justifyContent='space-between'>
+        <HStack justifyContent="space-between">
           <Heading>Create Project</Heading>
-          <Button bg={'cadetblue'} _hover='none' fontWeight='800' color={BtnColor} onClick={() => navigate(-1)}>Back</Button>
+          <Button
+            bg={"cadetblue"}
+            _hover="none"
+            fontWeight="800"
+            color={BtnColor}
+            onClick={() => navigate(-1)}
+          >
+            Back
+          </Button>
         </HStack>
         <Box
           as="form"
           bg="bg-surface"
-          boxShadow={useColorModeValue('sm', 'sm-dark')}
+          boxShadow={useColorModeValue("sm", "sm-dark")}
           borderRadius="lg"
         >
           <Stack
             spacing="5"
             py={{
-              base: '5',
-              md: '6',
+              base: "5",
+              md: "6",
             }}
           >
             <Stack
               spacing="6"
               direction={{
-                base: 'column',
-                md: 'row',
+                base: "column",
+                md: "row",
               }}
             >
               <FormControl id="firstName">
                 <FormLabel>Project Name</FormLabel>
-                <Input type='text' placeholder='Project Name' />
+                <Input type="text" placeholder="Project Name" />
               </FormControl>
               <FormControl id="lastName">
                 <FormLabel>Project Budget</FormLabel>
-                <Input type='text' placeholder='Project Budget' />
+                <Input type="text" placeholder="Project Budget" />
               </FormControl>
             </Stack>
             <FormControl id="street">
               <FormLabel>Project Details</FormLabel>
-              <Textarea type='text' placeholder='Project Details' />
+              <Textarea type="text" placeholder="Project Details" />
             </FormControl>
             <Stack
               spacing="6"
               direction={{
-                base: 'column',
-                md: 'row',
+                base: "column",
+                md: "row",
               }}
             >
               <FormControl id="city">
                 <FormLabel>Starting Date</FormLabel>
-                <Input type={'date'} />
+                <Input type={"date"} />
               </FormControl>
               <FormControl id="state">
                 <FormLabel>Delivery Date</FormLabel>
-                <Input type={'date'} />
+                <Input type={"date"} />
               </FormControl>
             </Stack>
           </Stack>
           <Divider />
-          <Flex
-            direction="row-reverse"
-            py="4"
-          >
-            <Button bg={'cadetblue'} _hover='none' fontWeight='800' color={BtnColor} >Save</Button>
+          <Flex direction="row-reverse" py="4">
+            <Button
+              bg={"cadetblue"}
+              _hover="none"
+              fontWeight="800"
+              color={BtnColor}
+            >
+              Save
+            </Button>
           </Flex>
         </Box>
       </AfterAuth>
     </>
-  )
+  );
 }
 
 export default CreateProject;

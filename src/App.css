@@ -1,7 +1,17 @@
 .App {
   text-align: center;
 }
-
+.chakra-ui-dark :host:not([data-theme]),
+.chakra-ui-dark :root:not([data-theme]),
+.chakra-ui-dark [data-theme]:not([data-theme]),
+[data-theme=dark] :host:not([data-theme]),
+[data-theme=dark] :root:not([data-theme]),
+[data-theme=dark] [data-theme]:not([data-theme]),
+:host[data-theme=dark],
+:root[data-theme=dark],
+[data-theme][data-theme=dark]{
+--chakra-colors-chakra-body-bg:#010b1e !important;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
