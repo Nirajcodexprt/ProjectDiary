@@ -57,3 +57,13 @@
   height: 180px !important;
   border-Radius:6px; 
 }
+.GoogleButton{
+    scale: 0.7;
+        height: auto;
+        /* width: fit-content !important; */
+        margin: 0px !important;
+        padding: 10px 10px;
+}
+.hover:hover{
+  background-color: #010b1e !important;
+}

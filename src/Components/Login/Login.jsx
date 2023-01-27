@@ -2,51 +2,56 @@ import {
   Box,
   Button,
   Container,
+  Flex,
   Heading,
+  HStack,
   Stack,
   Text,
   useColorMode,
   useColorModeValue,
-} from '@chakra-ui/react'
-import React, { useEffect } from 'react'
-import Floating from './Floating'
-import { Logo } from './Logo'
-import { useNavigate } from 'react-router-dom'
+  VStack,
+} from "@chakra-ui/react";
+import React, { useEffect } from "react";
+import Floating from "./Floating";
+import { Logo } from "./Logo";
+import { useNavigate } from "react-router-dom";
+import Facebook from "../SocialLogin/Facebook";
+import Github from "../SocialLogin/Github";
+import Google from "../SocialLogin/Google";
 
 const Login = () => {
-  const { colorMode, toggleColorMode } = useColorMode()
-  const bg = useColorModeValue('white', '#011729')
-  const btnbg = useColorModeValue('#011729', 'white')
-  const bx = useColorModeValue('rgb(206, 206, 206)', 'rgb(71, 71, 71)')
-  const navigate = useNavigate()
+  const { colorMode, toggleColorMode } = useColorMode();
+  const bg = useColorModeValue("white", "#011729");
+  const btnbg = useColorModeValue("#011729", "white");
+  const bx = useColorModeValue("rgb(206, 206, 206)", "rgb(71, 71, 71)");
+  const navigate = useNavigate();
 
   const login = () => {
     localStorage.setItem("login", true);
-    navigate('/dashboard')
+    navigate("/dashboard");
   };
 
   useEffect(() => {
-		let signin = localStorage.getItem("login");
-		if (signin) {
-			navigate("/dashboard");
-		}
-    else{
-      navigate('/signin')
+    let signin = localStorage.getItem("login");
+    if (signin) {
+      navigate("/dashboard");
+    } else {
+      navigate("/signin");
     }
-	}, []);
+  }, []);
 
   return (
     <Box
       bgGradient={{
-        sm: 'linear(to-r, blue.900, purple.900)',
+        sm: "linear(to-r, blue.900, purple.900)",
       }}
-      height={'100vh'}
+      height={"100vh"}
       display="grid"
-      alignItems={'center'}
+      alignItems={"center"}
       px={7}
     >
       <Button
-        position={'absolute'}
+        position={"absolute"}
         onClick={toggleColorMode}
         top="20px"
         right="20px"
@@ -55,7 +60,7 @@ const Login = () => {
         userSelect="none"
         _hover="none"
       >
-        {colorMode === 'dark' ? (
+        {colorMode === "dark" ? (
           <i class="bi bi-brightness-high-fill"></i>
         ) : (
           <i class="bi bi-moon-stars-fill"></i>
@@ -64,15 +69,15 @@ const Login = () => {
       <Container
         maxW="md"
         px={{
-          base: '4',
-          sm: '10',
+          base: "4",
+          sm: "10",
         }}
         bg={bg}
         py={5}
-        style={{ boxShadow: '0px 0px 10px 0px ' + bx }}
+        style={{ boxShadow: "0px 0px 10px 0px " + bx }}
         borderRadius={{
-          base: 'none',
-          sm: 'xl',
+          base: "none",
+          sm: "xl",
         }}
       >
         <Stack spacing="8">
@@ -87,13 +92,13 @@ const Login = () => {
           </Stack>
           <Stack spacing="6">
             <Stack spacing="4">
-              <Floating type={'email'} name={'Email'} />
-              <Floating type={'password'} name={'Password'} />
+              <Floating type={"email"} name={"Email"} />
+              <Floating type={"password"} name={"Password"} />
               <Button
-                bg={'blue.500'}
+                bg={"blue.500"}
                 color="white"
-                _hover={{ bg: 'blue.600' }}
-                _active={{ bg: 'blue.500' }}
+                _hover={{ bg: "blue.600" }}
+                _active={{ bg: "blue.500" }}
                 variant="solid"
                 onClick={login}
               >
@@ -101,7 +106,18 @@ const Login = () => {
               </Button>
             </Stack>
           </Stack>
-          <Stack spacing="0.5" align="center">
+          <Box
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "10px",
+            }}
+          >
+            <Google />
+            <Facebook />
+            <Github />
+          </Box>
+          <Stack spacing="0.5" style={{ margin: "10px" }} align="center">
             <Text fontSize="sm" color="muted">
               if Doesn't Signed Up
             </Text>
@@ -109,18 +125,24 @@ const Login = () => {
               variant="link"
               colorScheme="blue"
               size="sm"
-              onClick={() => navigate('/signup')}
+              onClick={() => navigate("/signup")}
             >
               Sign Up
             </Button>
           </Stack>
-          <Text fontSize="xs" color="subtle" textAlign="center">
+
+          <Text
+            style={{ marginTop: "0px" }}
+            fontSize="xs"
+            color="subtle"
+            textAlign="center"
+          >
             By continuing, you acknowledge that you have read, understood, and
             agree to our terms and condition
           </Text>
         </Stack>
       </Container>
     </Box>
-  )
-}
-export default Login
+  );
+};
+export default Login;
