@@ -15,7 +15,7 @@ const State = ({ label, value }) => {
       py={{ base: "5", md: "6" }}
       bg="bg-surface"
       borderRadius="lg"
-      boxShadow={useColorModeValue("sm", "sm-dark")}
+    // boxShadow={useColorModeValue("sm", "sm-dark")}
     >
       <Stack>
         <Text fontSize="sm" color="muted">

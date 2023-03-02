@@ -43,7 +43,7 @@ const AfterAuth = ({ children }) => {
           mt="20"
           mx={3}
           pt="30px"
-          minH={"90vh"}
+          minH={"80vh"}
           px="30px"
         >
           {children}

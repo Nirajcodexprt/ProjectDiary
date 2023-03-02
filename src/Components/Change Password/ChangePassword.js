@@ -1,9 +1,9 @@
-import { useColorModeValue } from '@chakra-ui/react'
 import React from 'react'
 import {
     Box,
     Button,
     Container,
+    Flex,
     Heading,
     Stack,
     Text,
@@ -11,6 +11,9 @@ import {
     useColorModeValue,
 } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
+import Floating from '../Login/Floating'
+import { Logo } from '../ForgotPassword/Logo'
+import { useState } from 'react'
 
 const ChangePassword = () => {
 
@@ -19,6 +22,22 @@ const ChangePassword = () => {
     const btnbg = useColorModeValue('#011729', 'white')
     const bx = useColorModeValue('rgb(206, 206, 206)', 'rgb(71, 71, 71)')
     const navigate = useNavigate()
+    const BtnColor = useColorModeValue("#000", "#fff");
+
+    const [formValue, setFormValue] = useState(
+        {
+            name: "",
+        }
+    )
+
+    const handleChange = (e) => {
+        setFormValue({
+            ...formValue,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    console.log('formValue', formValue)
 
     return (
         <>
@@ -55,41 +74,24 @@ const ChangePassword = () => {
                     }}
                     bg={bg}
                     py={5}
-                    style={{ boxShadow: '0px 0px 10px 0px ' + bx }}
+                    // style={{ boxShadow: '0px 0px 10px 0px ' + bx }}
                     borderRadius={{
                         base: 'none',
                         sm: 'xl',
                     }}
                 >
-                    <Stack spacing="8">
-                        <Stack spacing="3" align="center">
+                    <Stack spacing={4}>
+                        <Stack align={'center'}>
                             <Logo />
-                            <Stack spacing="1" textAlign="center">
-                                <Heading fontSize={25}>Forgot Password</Heading>
-                                <Text fontSize={13} Muted>
-                                    Forgot password with Email
-                                </Text>
-                            </Stack>
                         </Stack>
-                        <Stack spacing="6">
-                            <Stack spacing="4">
-                                <Floating type={'email'} name={'Email'} />
-                                <Button
-                                    bg={'blue.500'}
-                                    color="white"
-                                    _hover={{ bg: 'blue.600' }}
-                                    _active={{ bg: 'blue.500' }}
-                                    variant="solid"
-                                    onClick={() => navigate('/dashboard')}
-                                >
-                                    Send OTP
-                                </Button>
-                            </Stack>
-                        </Stack>
-                        <Text fontSize="xs" color="subtle" textAlign="center">
-                            By continuing, you acknowledge that you have read, understood, and
-                            agree to our terms and condition
-                        </Text>
+                        <Heading fontSize={25} mb="4" textAlign={"center"}>Change Password</Heading>
+                        <Floating type={"password"} onChange={handleChange} name={"Old Password"} />
+                        <Floating type={"password"} onChange={handleChange} name={"New Password"} />
+                        <Floating type={"password"} onChange={handleChange} name={"Confirm Password"} />
+                        <Flex justifyContent={'space-between'}>
+                            <Button onClick={() => navigate('/signin')} color={BtnColor} bg="cadetblue" _hover={'none'} px='40px'>Back</Button >
+                            <Button color={BtnColor} bg="cadetblue" _hover={'none'} px="40px">Save</Button>
+                        </Flex>
                     </Stack>
                 </Container>
             </Box>

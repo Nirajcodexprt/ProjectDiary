@@ -74,7 +74,7 @@ const Login = () => {
         }}
         bg={bg}
         py={5}
-        style={{ boxShadow: "0px 0px 10px 0px " + bx }}
+        // style={{ boxShadow: "0px 0px 10px 0px " + bx }}
         borderRadius={{
           base: "none",
           sm: "xl",
@@ -144,7 +144,7 @@ const Login = () => {
               colorScheme="blue"
               size="sm"
               mt={2}
-              onClick={() => navigate("")}
+              onClick={() => navigate("/ChangePassword")}
             >
              Change Password
             </Button>

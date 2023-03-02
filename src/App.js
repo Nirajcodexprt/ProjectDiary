@@ -17,6 +17,7 @@ import CreateTeam from './Pages/teams/CreateTeam'
 import EditProfile from './Pages/Profile/ViewProfile'
 import Protected from './Components/Protected'
 import ViewProfile from './Pages/Profile/ViewProfile'
+import ChangePassword from './Components/Change Password/ChangePassword'
 
 function App() {
   const { colorMode, toggleColorMode } = useColorMode()
@@ -41,6 +42,7 @@ function App() {
         <Route path="/projects/createProject" element={<Protected Component={CreateProject} />} />
 
         <Route path="/forgotpass" element={<ForgotPass />} />
+        <Route path="/ChangePassword" element={<ChangePassword />} />
       </Routes>
     </BrowserRouter>
   )

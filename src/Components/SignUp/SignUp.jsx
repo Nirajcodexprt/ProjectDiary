@@ -66,7 +66,7 @@ const SignUp = () => {
         }}
         bg={bg}
         py={5}
-        style={{ boxShadow: '0px 0px 10px 0px ' + bx }}
+        // style={{ boxShadow: '0px 0px 10px 0px ' + bx }}
         borderRadius={{
           base: 'none',
           sm: 'xl',
