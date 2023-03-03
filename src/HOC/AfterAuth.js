@@ -18,7 +18,7 @@ const AfterAuth = ({ children }) => {
     md: "col",
   });
   const [first, setfirst] = React.useState(main);
-  console.log("main", main);
+  // console.log("main", main);
   return (
     <Flex
       as="section"
@@ -30,6 +30,7 @@ const AfterAuth = ({ children }) => {
       <Box width={"100%"} display={"flex"} style={{ flexDirection: main }}>
         <Sidebar />
         <Box
+          className="Children-box"
           border="2px solid rgba(200,200,200,0.5)"
           overflowY="scroll"
           w={{

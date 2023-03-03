@@ -71,3 +71,12 @@
 body{
   overflow-y: hidden !important;
 }
+.MultiSelectBox{
+  width: 100%;
+}
+
+/* @media (max-width:430px) {
+  .Children-box{
+    display: none;
+  }
+} */

@@ -6,14 +6,16 @@ const SelectTeam = () => {
     options: ["ab", "cd"],
   });
   return (
-    <MultiSelect
-      options={options}
-      value={value}
-      label="Select Team"
-      onChange={onChange}
-      single
-      create
-    />
+    <div className="MultiSelectBox">
+      <MultiSelect
+        options={options}
+        value={value}
+        label="Select Team"
+        onChange={onChange}
+        single
+        create
+      />
+    </div>
   );
 };
 

@@ -10,7 +10,7 @@ function Project() {
 
     const BtnColor = useColorModeValue('#000', '#fff')
 
-    const projects = useRecoilValue(mainAtom)
+    // const projects = useRecoilValue(mainAtom)
     // console.log('projects', projects)
 
     return (
@@ -34,27 +34,27 @@ function Project() {
                             </Tr>
                         </Thead>
                         <Tbody>
-                            {projects.length ? (projects?.map((obj, i) => (
-                                <Tr>
-                                    <Td>{obj.projectName}</Td>
-                                    <Td>{obj.projectBudget}</Td>
-                                    <Td>{obj.StartingDate}</Td>
-                                    <Td>{obj.DeliveryDate}</Td>
-                                    <Td>
-                                        <IconButton
-                                            icon={<FiEdit2 fontSize="1.25rem" />}
-                                            variant="ghost"
-                                            aria-label="Edit member"
-                                        />
-                                        <IconButton
-                                            icon={<FiTrash2 fontSize="1.25rem" />}
-                                            variant="ghost"
-                                            aria-label="Delete member"
-                                        />
-                                    </Td>
-                                </Tr>
-                            ))
-                            ) : "No records found"}
+                            {/* {projects.length ? (projects?.map((obj, i) => ( */}
+                            <Tr>
+                                <Td>H1</Td>
+                                <Td>H2</Td>
+                                <Td>H3</Td>
+                                <Td>H4</Td>
+                                <Td>
+                                    <IconButton
+                                        icon={<FiEdit2 fontSize="1.25rem" />}
+                                        variant="ghost"
+                                        aria-label="Edit member"
+                                    />
+                                    <IconButton
+                                        icon={<FiTrash2 fontSize="1.25rem" />}
+                                        variant="ghost"
+                                        aria-label="Delete member"
+                                    />
+                                </Td>
+                            </Tr>
+                            {/* ))
+                            ) : "No records found"} */}
                         </Tbody>
                     </Table>
                 </Stack>

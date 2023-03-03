@@ -5,6 +5,8 @@ import {
     Container,
     Flex,
     Heading,
+    InputGroup,
+    InputRightElement,
     Stack,
     Text,
     useColorMode,
@@ -38,6 +40,9 @@ const ChangePassword = () => {
     }
 
     console.log('formValue', formValue)
+
+    const [hidePassword, setHidePassword] = useState(false);
+    const [hideConfirmPassword, setHideConfirmPassword] = useState(false);
 
     return (
         <>
@@ -86,8 +91,40 @@ const ChangePassword = () => {
                         </Stack>
                         <Heading fontSize={25} mb="4" textAlign={"center"}>Change Password</Heading>
                         <Floating type={"password"} onChange={handleChange} name={"Old Password"} />
-                        <Floating type={"password"} onChange={handleChange} name={"New Password"} />
-                        <Floating type={"password"} onChange={handleChange} name={"Confirm Password"} />
+                        <InputGroup>
+                            <Floating type={hidePassword ? "text" : "password"} onChange={handleChange} name={"New Password"} />
+                            <InputRightElement>
+                                {!hidePassword && (
+                                    <i
+                                        class='bi bi-eye-slash-fill'
+                                        onClick={() => setHidePassword(!hidePassword)}>
+                                    </i>
+                                )}
+                                {hidePassword && (
+                                    <i
+                                        class='bi bi-eye-fill'
+                                        onClick={() => setHidePassword(!hidePassword)}>
+                                    </i>
+                                )}
+                            </InputRightElement>
+                        </InputGroup>
+                        <InputGroup>
+                            <Floating type={hideConfirmPassword ? "text" : "password"} onChange={handleChange} name={"Confirm Password"} />
+                            <InputRightElement>
+                                {hideConfirmPassword && (
+                                    <i
+                                        class='bi bi-eye-fill'
+                                        onClick={() => setHideConfirmPassword(!hideConfirmPassword)}>
+                                    </i>
+                                )}
+                                {!hideConfirmPassword && (
+                                    <i
+                                        class='bi bi-eye-slash-fill'
+                                        onClick={() => setHideConfirmPassword(!hideConfirmPassword)}>
+                                    </i>
+                                )}
+                            </InputRightElement>
+                        </InputGroup>
                         <Flex justifyContent={'space-between'}>
                             <Button onClick={() => navigate('/signin')} color={BtnColor} bg="cadetblue" _hover={'none'} px='40px'>Back</Button >
                             <Button color={BtnColor} bg="cadetblue" _hover={'none'} px="40px">Save</Button>

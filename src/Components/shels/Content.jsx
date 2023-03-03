@@ -68,7 +68,7 @@ export const Content = () => (
   </Stack>
 );
 const Card = (props) => {
-  console.log(props);
+  // console.log(props);
   return (
     <Box
       minH="36"

@@ -5,13 +5,15 @@ import {
   Flex,
   Heading,
   HStack,
+  InputGroup,
+  InputRightElement,
   Stack,
   Text,
   useColorMode,
   useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Floating from "./Floating";
 import { Logo } from "./Logo";
 import { useNavigate } from "react-router-dom";
@@ -39,6 +41,8 @@ const Login = () => {
       navigate("/signin");
     }
   }, []);
+
+  const [hidePassword, setHidePassword] = useState(false);
 
   return (
     <Box
@@ -93,7 +97,23 @@ const Login = () => {
           <Stack spacing="6">
             <Stack spacing="4">
               <Floating type={"email"} name={"Email"} />
-              <Floating type={"password"} name={"Password"} />
+              <InputGroup>
+              <Floating type={hidePassword ? "text" : "password"} name={"Password"} />
+              <InputRightElement>
+                                {!hidePassword && (
+                                    <i
+                                        class='bi bi-eye-slash-fill'
+                                        onClick={() => setHidePassword(!hidePassword)}>
+                                    </i>
+                                )}
+                                {hidePassword && (
+                                    <i
+                                        class='bi bi-eye-fill'
+                                        onClick={() => setHidePassword(!hidePassword)}>
+                                    </i>
+                                )}
+                            </InputRightElement>
+                        </InputGroup>
               <Button
                 bg={"blue.500"}
                 color="white"

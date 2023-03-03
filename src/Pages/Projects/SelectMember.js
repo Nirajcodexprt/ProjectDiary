@@ -6,13 +6,15 @@ const SelectMember = () => {
     options: ["ab", "cd"],
   });
   return (
-    <MultiSelect
-      options={options}
-      value={value}
-      label="Select Members"
-      onChange={onChange}
-      create
-    />
+    <div className="MultiSelectBox">
+      <MultiSelect
+        options={options}
+        value={value}
+        label="Select Members"
+        onChange={onChange}
+        create
+      />
+    </div>
   );
 };
 

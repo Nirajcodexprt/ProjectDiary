@@ -6,14 +6,16 @@ const SelectManager = () => {
     options: ["ab", "cd"],
   });
   return (
-    <MultiSelect
-      options={options}
-      value={value}
-      label="Select Manager"
-      onChange={onChange}
-      single
-      create
-    />
+    <div className="MultiSelectBox" >
+      <MultiSelect
+        options={options}
+        value={value}
+        label="Select Manager"
+        onChange={onChange}
+        single
+        create
+      />
+    </div>
   );
 };
 

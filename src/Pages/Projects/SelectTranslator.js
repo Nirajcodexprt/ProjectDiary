@@ -6,14 +6,16 @@ const SelectTranslator = () => {
     options: ["ab", "cd"],
   });
   return (
-    <MultiSelect
-      options={options}
-      value={value}
-      label="Select Translator"
-      onChange={onChange}
-      single
-      create
-    />
+    <div className="MultiSelectBox">
+      <MultiSelect
+        options={options}
+        value={value}
+        label="Select Translator"
+        onChange={onChange}
+        single
+        create
+      />
+    </div>
   );
 };
 
